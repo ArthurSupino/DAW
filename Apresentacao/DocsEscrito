@@ -159,3 +159,9 @@ O container cria a estrutura (duas colunas e três linhas).
 
 Cada item "se encaixa" no lugar certo usando grid-column.
 
+ O que é .item:nth-child(1) no CSS?
+.item → seleciona qualquer elemento que tenha a classe item.
+
+:nth-child(1) → especifica o primeiro filho dentro do container.
+ É como dizer:
+"Eu quero aplicar este estilo só para o primeiro item, e não para os outros."
