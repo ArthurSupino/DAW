@@ -1,0 +1,161 @@
+
+ TEMA: Posicionamento de Elementos com CSS Grid Layout
+1. Introdução ao Posicionamento em CSS
+O posicionamento em CSS determina como os elementos são dispostos na página. As principais opções são:
+static: Padrão; os elementos seguem o fluxo normal da página.
+
+
+relative: Posiciona o elemento em relação à sua posição original.
+
+
+absolute: Posiciona o elemento em relação ao ancestral mais próximo que não seja static.
+
+
+fixed: Posiciona o elemento em relação à janela do navegador.
+
+
+sticky: Alterna entre relative e fixed, dependendo da rolagem da página.
+
+
+Para tirar os exemplos de código: CSS Layout - The position Property - W3Schools 
+2. CSS Grid Layout
+O CSS Grid Layout é um sistema bidimensional que permite criar layouts complexos com linhas e colunas.
+2.1. Conceitos Básicos
+Grid Container: Elemento pai com display: grid ou display: inline-grid.
+
+
+Grid Items: Elementos filhos diretos do grid container.
+
+
+aprofundar no link, usar as imagens como exemplo: CSS Grid Layout Module - W3Schools
+2.2. Definindo Linhas e Colunas
+grid-template-columns: Define o número e tamanho das colunas.
+
+
+grid-template-rows: Define o número e tamanho das linhas.
+
+
+Exemplo:
+.container {
+  display: grid;
+  grid-template-columns: 100px 200px auto;
+  grid-template-rows: 80px 200px;
+}
+se der para aprofundar aqui e colocar os exemplos das demais maneiras de posicionamento : CSS Grid Container - W3Schools
+2.3. Espaçamento entre Itens
+gap: Define o espaçamento entre linhas e colunas.
+
+
+row-gap e column-gap: Definem o espaçamento específico entre linhas ou colunas.
+
+
+Exemplo:
+.container {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  gap: 10px;
+}
+2.4. Posicionamento de Itens
+grid-column-start e grid-column-end: Definem onde o item começa e termina nas colunas.
+
+
+grid-row-start e grid-row-end: Definem onde o item começa e termina nas linhas.
+
+
+grid-area: Combina as propriedades acima para posicionar o item em uma área específica.
+
+
+Exemplo:
+.item1 {
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+}
+se der para aprofundar aqui e colocar os exemplos das demais formas : CSS Grid Item - W3Schools
+2.5. Alinhamento de Itens
+justify-content: Alinha os itens horizontalmente dentro do container.
+
+
+align-content: Alinha os itens verticalmente dentro do container.
+
+
+place-content: Combina justify-content e align-content.
+
+
+Exemplo:
+.container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+}
+
+Questão para se colocar no final da apresentação 
+
+ Questão:
+Você tem o seguinte container:
+<div class="container">
+  <div class="item">A</div>
+  <div class="item">B</div>
+  <div class="item">C</div>
+  <div class="item">D</div>
+</div>
+E você precisa montar o seguinte layout usando CSS Grid:
+Cabeçalho (A)
+Cabeçalho (A)
+Menu (B)
+Conteúdo (C)
+Rodapé (D)
+Rodapé (D)
+
+Desafio:
+Faça o item A ocupar as duas primeiras colunas.
+
+
+Coloque o item B na primeira coluna e o item C na segunda linha, segunda coluna.
+
+
+Faça o item D ocupar toda a terceira linha (duas colunas).
+
+
+Pergunta a se fazer da questão:
+Que regras de CSS (usando Grid) você escreveria para posicionar corretamente os elementos?
+
+Resposta esperada para a solução da questão:
+.container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto auto auto;
+  gap: 10px;
+}
+
+.item:nth-child(1) {
+  grid-column: 1 / 3; /* A ocupa duas colunas */
+}
+
+.item:nth-child(2) {
+  grid-column: 1 / 2; /* B */
+}
+
+.item:nth-child(3) {
+  grid-column: 2 / 3; /* C */
+}
+
+.item:nth-child(4) {
+  grid-column: 1 / 3; /* D ocupa duas colunas */
+}
+
+
+
+para ficar nítido os espaços entre as colunas fizemos um exemplo e colocamos cores:
+
+Resumo Rápido para explicar:
+Cada elemento foi posicionado com grid-column para ocupar o espaço desejado.
+
+
+Quando queremos que um item ocupe mais de uma coluna, usamos grid-column: início / fim.
+
+
+O container cria a estrutura (duas colunas e três linhas).
+
+
+Cada item "se encaixa" no lugar certo usando grid-column.
+
